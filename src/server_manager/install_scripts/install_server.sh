@@ -537,8 +537,9 @@ brackets) into Step 2 of the Outline Manager interface:
 
 $(echo -e "\033[1;32m{\"apiUrl\":\"$(get_field_value apiUrl)\",\"certSha256\":\"$(get_field_value certSha256)\"}\033[0m")
 
-echo "{\"apiUrl\":\"$(get_field_value apiUrl)\",\"certSha256\":\"$(get_field_value certSha256)\"}" >> /opt/outline/installation_output
-echo -e "\033[0;35mThe installation_output is stored in /opt/outline/installation_output\033[0m"
+cat "{\"apiUrl\":\"$(get_field_value apiUrl)\",\"certSha256\":\"$(get_field_value certSha256)\"}" >> /opt/outline/installation_output
+$(echo -e "\033[0;35mThe installation_output is stored in /opt/outline/installation_output\033[0m")
+#echo -e "${PURPLE}User '$USERNAME' already exists.${NO_COLOR}"
 
 ${FIREWALL_STATUS}
 END_OF_SERVER_OUTPUT
